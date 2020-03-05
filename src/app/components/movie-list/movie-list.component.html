@@ -1,1 +1,4 @@
-<p>movie-list works!</p>
+<div class="card" style="width: 18rem;" *ngFor="let movie of movies.content" >
+    <img class="card-img-top" [src]= '' alt="Card image cap">
+    <p>{{movie.title}}</p>    
+   </div>

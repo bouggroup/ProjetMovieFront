@@ -12,8 +12,13 @@ import { Movie } from 'src/app/metier/movie';
 export class MovieListComponent implements OnInit {
 
   private moviesubription: Subscription;
+  private movieImgSubription: Subscription;
   private movies: Page<Movie>;
+  private  imgUrl: string;
+  private nomfilm: string;
+  private url: string;
 
+  objs: Movie;
   constructor(private movieService: MovieRepositoryService ) { }
 
   ngOnInit() {
@@ -21,5 +26,14 @@ export class MovieListComponent implements OnInit {
     this.moviesubription = this.movieService.getPageMovieAsObservable().subscribe(pm => this.movies = pm );
     this.movieService.refreshListe();
 
+
+    
+    //this.showimg('avatar');
+
+  }
+
+  showimg(nom: string) {
+    //this.movieImgSubription = this.movieService.getMovieIMGAsObservable().subscribe(img => this.objs = img);
+    this.movieService.listeImgJsonmovie(nom);
   }
 }
